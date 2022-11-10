@@ -24,7 +24,6 @@ export default class CalcDate {
         break;
       case 5:
         monthKey = 2;
-        console.log(monthKey);
         break;
       case 6:
         monthKey = 5;
@@ -62,7 +61,7 @@ export default class CalcDate {
     let yearNumString = newArr.join('');
     let finalYearNum = parseInt(yearNumString);
     const num1 = Math.trunc(finalYearNum * .25);
-    const num2 = parseInt(finalYearNum) + parseInt(num1) + parseInt(this.day) + parseInt(monthKey);
+    const num2 = parseInt(finalYearNum) + parseInt(num1) + parseInt(this.day) + (monthKey);
     let num3 = 0;
 
     if (this.year < 1800) {
@@ -99,7 +98,7 @@ export default class CalcDate {
         weekDay = 'Saturday';
         break;
       default:
-        console.log('Not a day of week');
+        weekDay = 'Not a day of week';
     }
 
     return weekDay;

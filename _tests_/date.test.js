@@ -24,17 +24,17 @@ describe("CalcDate", () => {
 	// 	expect(aDate.checkDate()).toEqual('greater than 1800');
 	// });
 
-		// test('should return remainder of day of week calculation', () => {
-		// 	const aDate = new CalcDate(5,24,1990);
-		// 	expect(aDate.checkDate()).toEqual(5);
-		// });
+	// test('should return remainder of day of week calculation', () => {
+	// 	const aDate = new CalcDate(5,24,1990);
+	// 	expect(aDate.checkDate()).toEqual(5);
+	// });
 
-		test('should return the day of week for the given day', () => {
-			const aDate = new CalcDate(1,24,1990);
-			expect(aDate.checkDate()).toEqual('Wednesday');
-		});
+	test('should return the day of week for the given day', () => {
+		const aDate = new CalcDate(1, 24, 1809);
+		expect(aDate.checkDate()).toEqual('Thursday');
+	});
 
 
-	
+
 });
 
