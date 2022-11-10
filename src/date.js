@@ -6,26 +6,10 @@ export default class CalcDate {
   }
 
   checkDate() {
-    // const jan = 1;
-    // const feb = 4;
-    // const march = 4;
-    // const april = 0;
-    // const may = 2;
-    // const june = 5;
-    // const july = 0;
-    // const aug = 3;
-    // const sept = 6;
-    // const oct = 1;
-    // const nov = 4;
-    // const dec = 6;
-    // const janLeapYear = 0;
-    // const febLeapYear = 3;
-
+    
     let monthKey = 0;
 
-
-
-    switch (this.month) {
+    switch (parseInt(this.month)) {
       case 1:
         monthKey = 1;
         break;
@@ -40,6 +24,7 @@ export default class CalcDate {
         break;
       case 5:
         monthKey = 2;
+        console.log(monthKey);
         break;
       case 6:
         monthKey = 5;
@@ -77,13 +62,19 @@ export default class CalcDate {
     let yearNumString = newArr.join('');
     let finalYearNum = parseInt(yearNumString);
     const num1 = Math.trunc(finalYearNum * .25);
-    const num2 = finalYearNum + num1 + this.day + monthKey;
+    const num2 = parseInt(finalYearNum) + parseInt(num1) + parseInt(this.day) + parseInt(monthKey);
     let num3 = 0;
 
-    if (this.year > 1800) {
+    if (this.year < 1800) {
+      num3 = ((num2 + 4) % 7);
+    } else if (this.year < 1900) {
+      num3 = ((num2 + 2) % 7);
+    } else if (this.year >= 1900 && this.year <= 2000) {
       num3 = ((num2) % 7);
-
+    } else if (this.year > 2000 && this.year < 2099) {
+      num3 = ((num2 - 1) % 7);
     }
+
     let weekDay = '';
     switch (num3) {
       case 1:
